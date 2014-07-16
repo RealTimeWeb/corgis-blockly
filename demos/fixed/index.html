@@ -5,6 +5,8 @@
   <title>Blockly Demo: Fixed Blockly</title>
   <script type="text/javascript" src="../../blockly_compressed.js"></script>
   <script type="text/javascript" src="../../blocks_compressed.js"></script>
+  <script type="text/javascript" src="../../javascript_compressed.js"></script>
+  <script type="text/javascript" src="../../python_compressed.js"></script>
   <script type="text/javascript" src="../../msg/js/en.js"></script>
   <style>
     body {
@@ -24,6 +26,8 @@
   <p>This is a simple demo of injecting Blockly into a fixed-sized 'div' element.</p>
 
   <p>&rarr; More info on <a href="http://code.google.com/p/blockly/wiki/InjectingFixedSize">injecting fixed-sized Blockly</a>...</p>
+  
+  <pre style='float:right; padding-right:200px' id='blockly-python-code'></pre>
 
   <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
 
@@ -35,11 +39,16 @@
     <block type="math_arithmetic"></block>
     <block type="text"></block>
     <block type="text_print"></block>
+    <block type="text_print"></block>
   </xml>
 
   <script>
     Blockly.inject(document.getElementById('blocklyDiv'),
         {path: '../../', toolbox: document.getElementById('toolbox')});
+    Blockly.addChangeListener(function () {
+        target = document.getElementById('blockly-python-code');
+        target.innerHTML  = Blockly.Python.workspaceToCode()
+    });
   </script>
 
 </body>

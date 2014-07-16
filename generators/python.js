@@ -116,7 +116,7 @@ Blockly.Python.init = function() {
       defvars[x] = Blockly.Python.variableDB_.getName(variables[x],
           Blockly.Variables.NAME_TYPE) + ' = None';
     }
-    Blockly.Python.definitions_['variables'] = defvars.join('\n');
+    //Blockly.Python.definitions_['variables'] = defvars.join('\n');
   }
 };
 
