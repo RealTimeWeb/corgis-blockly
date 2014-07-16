@@ -28,10 +28,15 @@
   <p>&rarr; More info on <a href="http://code.google.com/p/blockly/wiki/InjectingFixedSize">injecting fixed-sized Blockly</a>...</p>
   
   <pre style='float:right; padding-right:200px' id='blockly-python-code'></pre>
+  <pre style='float:right; padding-right:200px' id='blockly-javascript-code'></pre>
 
   <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
 
   <xml id="toolbox" style="display: none">
+    <block type="weather_get_temperature"></block>
+    <block type="weather_get_forecasts"></block>
+    <block type="stocks_get_past"></block>
+    <block type="stocks_get_current"></block>
     <block type="controls_if"></block>
     <block type="controls_repeat_ext"></block>
     <block type="logic_compare"></block>
@@ -39,7 +44,7 @@
     <block type="math_arithmetic"></block>
     <block type="text"></block>
     <block type="text_print"></block>
-    <block type="text_print"></block>
+    <block type="variables_set"></block>
   </xml>
 
   <script>
@@ -48,6 +53,8 @@
     Blockly.addChangeListener(function () {
         target = document.getElementById('blockly-python-code');
         target.innerHTML  = Blockly.Python.workspaceToCode()
+        target = document.getElementById('blockly-javascript-code');
+        target.innerHTML  = Blockly.JavaScript.workspaceToCode()
     });
   </script>
 
